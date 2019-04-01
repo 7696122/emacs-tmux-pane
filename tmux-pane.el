@@ -37,7 +37,9 @@
 (define-namespace tmux-pane-
 
 (defcustom prefix-key "M"
-  "prefix key")
+  "prefix key"
+  :type 'string
+  :group 'tmux-pane)
 
 (defcustom vertical-percent 25
   "horizontal percent of the vertical pane"
