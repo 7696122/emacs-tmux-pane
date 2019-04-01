@@ -3,7 +3,8 @@
 ;; Copyright (C) 2018
 
 ;; URL: https://github.com/laishulu/emacs-tmux-pane
-;; Package-Version: 20181210.2110
+;; Package-Version: 20190401.1514
+;; Package-X-Original-Version: 20181210.2110
 ;; Created: November 1, 2018
 ;; Keywords: convenience, terminals, tmux, window, pane, navigation, integration
 ;; Package-Requires: ((names "0.5") (emacs "24") (s "0"))
@@ -36,10 +37,10 @@
 
 (define-namespace tmux-pane-
 
-(defcustom prefix-key "M"
-  "prefix key"
-  :type 'string
-  :group 'tmux-pane)
+;; (defcustom prefix-key "M"
+;;   "prefix key"
+;;   :type 'string
+;;   :group 'tmux-pane)
 
 (defcustom vertical-percent 25
   "horizontal percent of the vertical pane"
@@ -101,7 +102,8 @@
 )
 
 (defvar tmux-pane-mode-map
-  (let ((map (make-sparse-keymap)))
+  (let ((prefix-key "M")
+        (map (make-sparse-keymap)))
     (define-key map (kbd (concat prefix-key "-k"))
       (lambda () (interactive) (tmux-pane--windmove "up"  "tmux select-pane -U")))
     (define-key map (kbd (concat prefix-key "-j"))
